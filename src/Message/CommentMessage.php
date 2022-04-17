@@ -4,13 +4,16 @@ namespace App\Message;
 
 class CommentMessage
 {
-    private int $id;
-    private array $context;
+    public function __construct(
+        private int $id,
+        private string $reviewUrl,
+        private array $context = []
+    ) {
+    }
 
-    public function __construct(int $id, array $context = [])
+    public function getReviewUrl(): string
     {
-        $this->id = $id;
-        $this->context = $context;
+        return $this->reviewUrl;
     }
 
     public function getId(): int
